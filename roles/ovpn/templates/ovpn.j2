@@ -1,4 +1,6 @@
-### Endpoint definitions ###
+##################################
+###    Endpoint definitions    ###
+##################################
 
 {% if item.value.remote is defined %}
 # The far end external IP 
@@ -24,7 +26,9 @@ lport {{ item.value.lport }}
 proto {{ item.value.proto }}
 
 {% endif %}
-### Internal Tunnel Settings ###
+##################################
+###  Internal Tunnel Settings  ###
+##################################
 
 # Tunnel device name
 dev {{ item.key }}
@@ -32,7 +36,9 @@ dev {{ item.key }}
 # Internal tunnel endpoint IPs
 ifconfig {{ host.ovpn_addr }} {{ item.value.ip }}
 
+##################################
 ### Cryptography & Compression ###
+##################################
 
 # Pre-shared Key
 secret {{ item.key }}.key
@@ -47,3 +53,12 @@ cipher {{ item.value.cipher }}
 comp-lzo
 
 {% endif %}
+##################################
+###      Logging & Debug       ###
+##################################
+
+# Log file to append to [Use log filename.log to overwrite the file each time]
+log-append {{ item.key }}.log
+
+# Log verbosity
+verb 3
