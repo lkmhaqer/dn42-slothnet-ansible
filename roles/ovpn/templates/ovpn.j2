@@ -41,7 +41,11 @@ ifconfig {{ host.ovpn_addr }} {{ item.value.ip }}
 ##################################
 
 # Pre-shared Key
+{% if item.value.secret is defined %}
+secret {{ item.value.secret }}.key
+{% else %}
 secret {{ item.key }}.key
+{% endif %}
 
 {% if item.value.cipher is defined %}
 # Cipher to use for encryption [Default: BF-CBC | Available: AES-128-CBC, AES-192-CBC, AES-256-CBC, etc...]

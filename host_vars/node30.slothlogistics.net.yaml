@@ -7,6 +7,7 @@ host:
       port: 11141
       ip: 172.22.150.127
       complzo: True
+      secret: node29-node30.key
     tun-node31-aus:
       remote: 192.168.137.93
       port: 11142
