@@ -7,3 +7,8 @@ host:
       port: 11141
       ip: 172.22.150.127
       complzo: True
+    tun-node31-aus:
+      remote: 192.168.137.93
+      port: 11142
+      ip: 172.22.150.80
+      complzo: True
