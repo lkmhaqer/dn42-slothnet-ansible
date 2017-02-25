@@ -1,0 +1,9 @@
+---
+# file: setup.yml
+- hosts: all
+  gather_facts: no
+  tasks:
+    - include: roles/common/tasks/apt-cache-update.yml
+
+    - name: Cleaning up old packages
+      apt: autoremove=yes update_cache=yes cache_valid_time=3600

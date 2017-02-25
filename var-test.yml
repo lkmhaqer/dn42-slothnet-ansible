@@ -1,0 +1,9 @@
+---
+# file: var-test.yml
+- hosts: all
+  gather_facts: no
+  tasks:
+
+    - name: Print vars
+      debug:
+        var: hostvars[inventory_hostname]

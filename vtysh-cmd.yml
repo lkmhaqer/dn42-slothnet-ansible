@@ -1,0 +1,19 @@
+---
+# file: var-test.yml
+- hosts: quagga
+  gather_facts: no
+  vars_prompt:
+    - name: vtyshcmd
+      prompt: "What command to run on hosts?"
+      private: no
+      default: "show ip bgp summary"
+    - name: limit
+      prompt: "What should we limit by?"
+      private: no
+      default: ""
+  tasks:
+
+    - name: Execute show bgp summary.
+      shell: vtysh -c "{{ vtyshcmd }}" | grep "{{ limit }}"
+      register: cat
+    - debug: var=cat.stdout_lines

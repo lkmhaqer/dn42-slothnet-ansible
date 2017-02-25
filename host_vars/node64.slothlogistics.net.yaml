@@ -1,0 +1,20 @@
+host:
+  loopback: 172.27.255.64
+  ovpn_addr: 172.22.150.123
+  tunnel_interfaces:
+    tun-allenZ-tyo:
+      remote: 108.61.223.189
+      port: 50128
+      ip: 172.20.228.98
+      cipher: aes-256-cbc
+      complzo: True
+    tun-node96:
+      remote: 107.191.116.85
+      port: 11144
+      ip: 172.22.150.125
+      complzo: True
+    tun-skyroverRR-bom:
+      remote: 183.87.135.49
+      port: 23829
+      ip: 172.23.183.17
+      cipher: aes-256-cbc

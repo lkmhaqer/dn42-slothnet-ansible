@@ -1,0 +1,14 @@
+remote {{ item.value.remote }}
+{% if item.value.proto is defined %}
+proto {{ item.value.proto }}
+{% endif %}
+dev {{ item.key }}
+ifconfig {{ host.ovpn_addr }} {{ item.value.ip }}
+port {{ item.value.port }}
+secret {{ item.key }}.key
+{% if item.value.cipher is defined %}
+cipher {{ item.value.cipher }}
+{% endif %}
+{% if item.value.complzo is defined %}
+comp-lzo
+{% endif %}

@@ -1,0 +1,25 @@
+[ap-quagga]
+node64.slothlogistics.net	ansible_ssh_host=172.27.255.64
+
+[eu-quagga]
+node28.slothlogistics.net	ansible_ssh_host=172.27.255.28
+node69.slothlogistics.net	ansible_ssh_host=172.27.255.69
+
+[us-quagga]
+node43.slothlogistics.net	ansible_ssh_host=172.27.255.43
+node96.slothlogistics.net	ansible_ssh_host=172.27.255.96
+
+[us-bird]
+node29.slothlogistics.net       ansible_ssh_host=172.27.255.29
+
+[us:children]
+us-bird
+us-quagga
+
+[quagga:children]
+ap-quagga
+eu-quagga
+us-quagga
+
+[bird:children]
+us-bird

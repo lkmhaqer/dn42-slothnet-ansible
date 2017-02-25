@@ -1,0 +1,4 @@
+---
+# file: roles/common/tasks/main.yml
+- include: apt-cache-update.yml
+- include: base-pkg-install.yml

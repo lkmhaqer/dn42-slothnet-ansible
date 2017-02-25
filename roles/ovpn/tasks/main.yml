@@ -1,0 +1,15 @@
+---
+# file: roles/ovpn/tasks/main.yml
+- name: Checking openvpn package
+  apt: name=openvpn update_cache=yes cache_valid_time=3600 state=present
+
+- name: Generating OVPN config files
+  template: src=ovpn.j2 dest=/root/ovpn-config-test/{{ item.key }}.conf force=no
+  with_dict: "{{ host.tunnel_interfaces }}"
+
+- name: Generate OVPN key files
+  shell: openvpn --genkey --secret {{ item.key }}.key
+  args:
+    chdir: /root/ovpn-config-test/
+    creates: "{{ item.key }}.key"
+  with_dict: "{{ host.tunnel_interfaces }}"

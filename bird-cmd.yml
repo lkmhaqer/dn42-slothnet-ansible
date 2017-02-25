@@ -1,0 +1,19 @@
+---
+# file: var-test.yml
+- hosts: bird
+  gather_facts: no
+  vars_prompt:
+    - name: birdcmd
+      prompt: "What command to run on hosts?"
+      private: no
+      default: "show protocol"
+    - name: limit
+      prompt: "What should we limit by?"
+      private: no
+      default: ""
+  tasks:
+
+    - name: Execute show bgp summary.
+      shell: birdc "{{ birdcmd }}" | grep "{{ limit }}"
+      register: cat
+    - debug: var=cat.stdout_lines
