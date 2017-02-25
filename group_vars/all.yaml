@@ -1,3 +1,4 @@
 ---
-# file: group_vars/all
+# file: group_vars/all.yaml
 ansible_ssh_user: root
+openvpn_dir: /etc/openvpn/

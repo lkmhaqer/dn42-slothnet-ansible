@@ -1,0 +1,9 @@
+host:
+  loopback: 172.27.255.30
+  ovpn_addr: 172.22.150.75
+  tunnel_interfaces:
+    tun-node29-aus:
+      remote: 192.168.137.75
+      port: 11141
+      ip: 172.22.150.127
+      complzo: True
