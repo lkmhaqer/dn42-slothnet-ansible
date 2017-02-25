@@ -1,6 +1,5 @@
 ---
 # file: common-setup.yml
 - hosts: all
-  gather_facts: no
   roles:
     - common
