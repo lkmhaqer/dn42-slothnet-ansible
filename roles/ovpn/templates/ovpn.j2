@@ -1,14 +1,41 @@
+### Endpoint definitions ###
+
+# The far end external IP 
 remote {{ item.value.remote }}
-{% if item.value.proto is defined %}
-proto {{ item.value.proto }}
+
+{% if item.value.local is defined %}
+# The local IP to bind to externally
+local {{ item.value.local }}
+
 {% endif %}
-dev {{ item.key }}
-ifconfig {{ host.ovpn_addr }} {{ item.value.ip }}
+# Port number for external tunnel establishment
 port {{ item.value.port }}
+
+{% if item.value.proto is defined %}
+# Protocol to use for external tunnel [Default: UDP | Available: UDP6, TCP, TCP6]
+proto {{ item.value.proto }}
+
+{% endif %}
+### Internal Tunnel Settings ###
+
+# Tunnel device name
+dev {{ item.key }}
+
+# Internal tunnel endpoint IPs
+ifconfig {{ host.ovpn_addr }} {{ item.value.ip }}
+
+### Cryptography & Compression ###
+
+# Pre-shared Key
 secret {{ item.key }}.key
+
 {% if item.value.cipher is defined %}
+# Cipher to use for encryption [Default: BF-CBC | Available: AES-128-CBC, AES-192-CBC, AES-256-CBC, etc...]
 cipher {{ item.value.cipher }}
+
 {% endif %}
 {% if item.value.complzo is defined %}
+# Enables payload compression
 comp-lzo
+
 {% endif %}

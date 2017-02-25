@@ -18,3 +18,26 @@ host:
       port: 23829
       ip: 172.23.183.17
       cipher: aes-256-cbc
+    tun-florianb-tyo:
+      remote: 45.32.56.70
+      port: 19252
+      ip: 172.21.105.107
+      cipher: aes-256-cbc
+      complzo: True
+    tun-pr0be-tyo:
+      remote: 2001:19f0:7000:8005::1f5:37ba
+      local: 2001:19f0:7000:80a1:5054:ff:feaf:92a2
+      proto: udp6
+      port: 51002
+      ip: 172.22.163.83
+      complzo: True
+    tun-slime-tyo:
+      remote: 45.32.25.242
+      port: 53069
+      ip: 172.23.181.130
+      cipher: aes-256-cbc
+    tun-toBee-tyo:
+      remote: 104.156.238.255
+      port: 5003
+      ip: 172.23.67.9
+      complzo: True
