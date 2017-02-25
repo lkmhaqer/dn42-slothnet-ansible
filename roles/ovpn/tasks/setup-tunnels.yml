@@ -1,0 +1,16 @@
+- name: Checking openvpn package
+  apt: name=openvpn update_cache=yes cache_valid_time=3600 state=present
+
+- name: Checking OVPN Config Directory
+  file: path={{ openvpn_dir }} state=directory
+
+- name: Generating OVPN config files
+  template: src=ovpn.j2 dest={{ openvpn_dir }}{{ item.key }}.conf force=no
+  with_dict: "{{ host.tunnel_interfaces }}"
+
+- name: Generate OVPN key files
+  shell: openvpn --genkey --secret {{ item.key }}.key
+  args:
+    chdir: "{{ openvpn_dir }}"
+    creates: "{{ item.key }}.key"
+  with_dict: "{{ host.tunnel_interfaces }}"

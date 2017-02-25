@@ -1,6 +1,6 @@
 ---
 # file: roles/ovpn/tasks/main.yml
-
+- include: setup-tunnels.yml
 - include: ubuntu-systemd.yml
   when: ansible_distribution_major_version == "16"
 
