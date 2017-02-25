@@ -1,8 +1,10 @@
 ### Endpoint definitions ###
 
+{% if item.value.remote is defined %}
 # The far end external IP 
 remote {{ item.value.remote }}
 
+{% endif %}
 {% if item.value.local is defined %}
 # The local IP to bind to externally
 local {{ item.value.local }}
