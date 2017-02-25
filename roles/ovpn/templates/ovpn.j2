@@ -10,9 +10,15 @@ remote {{ item.value.remote }}
 local {{ item.value.local }}
 
 {% endif %}
+{% if item.value.port is defined %}
 # Port number for external tunnel establishment
 port {{ item.value.port }}
 
+{% elif item.value.lport is defined %}
+# Port number for the local side of the tunnel
+lport {{ item.value.lport }}
+
+{% endif %}
 {% if item.value.proto is defined %}
 # Protocol to use for external tunnel [Default: UDP | Available: UDP6, TCP, TCP6]
 proto {{ item.value.proto }}
