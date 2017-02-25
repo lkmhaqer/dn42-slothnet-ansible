@@ -8,9 +8,21 @@
   template: src=ovpn.j2 dest={{ openvpn_dir }}{{ item.key }}.conf force=no
   with_dict: "{{ host.tunnel_interfaces }}"
 
+- name: Creating local key repository
+  file: path=roles/ovpn/files/{{ inventory_hostname }}/ state=directory
+  delegate_to: 127.0.0.1
+
 - name: Generate OVPN key files
   shell: openvpn --genkey --secret {{ item.key }}.key
+  delegate_to: 127.0.0.1
   args:
-    chdir: "{{ openvpn_dir }}"
+    chdir: roles/ovpn/files/{{ inventory_hostname }}/
     creates: "{{ item.key }}.key"
+  with_dict: "{{ host.tunnel_interfaces }}"
+
+- name: Copying OVPN key files from repo to hosts
+  copy:
+    src: "{{ inventory_hostname }}/{{ item.key }}.key"
+    dest: "{{ openvpn_dir }}"
+    force: no
   with_dict: "{{ host.tunnel_interfaces }}"
