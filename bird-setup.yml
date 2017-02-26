@@ -1,6 +1,6 @@
 ---
 # file: ovpn-setup.yml
-- hosts: all
+- hosts: bird
   gather_facts: yes
   roles:
     - bird
