@@ -1,0 +1,4 @@
+---
+# file: roles/bird/tasks/main.yml
+
+- include: setup-bird.yml

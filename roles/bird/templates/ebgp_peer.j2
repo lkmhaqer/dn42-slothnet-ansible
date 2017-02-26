@@ -1,0 +1,3 @@
+protocol bgp {{ item.key }} from dnpeers {
+  neighbor {{ item.value.peer_ip }} as {{ item.value.peer_as }};
+};

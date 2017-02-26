@@ -2,3 +2,4 @@
 # file: group_vars/all.yaml
 ansible_ssh_user: root
 openvpn_dir: /etc/openvpn/
+bird_dir: ~/bird_test/

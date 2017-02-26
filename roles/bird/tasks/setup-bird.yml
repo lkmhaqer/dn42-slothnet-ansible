@@ -1,0 +1,15 @@
+- name: Checking bird package
+  apt: name=bird update_cache=yes cache_valid_time=3600 state=present
+
+- name: Checking bird config directorys
+  file: path={{ bird_dir }}peers4/ state=directory
+
+- name: Generating main bird config files
+  template: src=bird.j2 dest={{ bird_dir }}bird.conf force=no
+
+- name: Generating filter config
+  template: src=filter4.j2 dest={{ bird_dir}}filter4.conf force=no
+
+- name: Generating eBGP peer config files
+  template: src=ebgp_peer.j2 dest={{ bird_dir }}peers4/{{ item.key }}.conf force=no
+  with_dict: "{{ host.bgp_peers }}"
