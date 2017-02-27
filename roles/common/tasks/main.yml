@@ -6,5 +6,7 @@
   when: ansible_distribution_major_version == "16"
 
 - include: apt-cache-update.yml
+  when: ansible_distribution == "Ubuntu"
+  tags: update
 
 - include: base-pkg-install.yml
