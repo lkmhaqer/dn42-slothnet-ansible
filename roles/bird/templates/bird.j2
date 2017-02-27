@@ -78,7 +78,7 @@ template bgp ibgp {
   local as OWNAS;
   path metric 1;
   route limit 10000;
-  source address OWNIP;
+  source address {{ host.loopback }};
   gateway recursive;
   next hop self;
   import filter {

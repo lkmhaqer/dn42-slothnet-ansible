@@ -12,4 +12,8 @@
 
 - name: Generating eBGP peer config files
   template: src=ebgp_peer.j2 dest={{ bird_dir }}peers4/{{ item.key }}.conf force=no
-  with_dict: "{{ host.bgp_peers }}"
+  with_dict: "{{ host.ebgp_peers }}"
+
+- name: Generating iBGP peer config files
+  template: src=ibgp_peer.j2 dest={{ bird_dir }}peers4/{{ item.key }}.conf force=no
+  with_dict: "{{ host.ibgp_peers }}"
