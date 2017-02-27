@@ -1,0 +1,7 @@
+---
+# file: quagga-routers.yml
+- hosts: quagga
+  gather_facts: yes
+  roles:
+    - common
+    - ovpn

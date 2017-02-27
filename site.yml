@@ -1,0 +1,4 @@
+---
+# file: site.yml
+- include: bird-routers.yml
+- include: quagga-routers.yml

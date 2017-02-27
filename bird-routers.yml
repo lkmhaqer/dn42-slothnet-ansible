@@ -1,6 +1,8 @@
 ---
-# file: ovpn-setup.yml
+# file: bird-routers.yml
 - hosts: bird
   gather_facts: yes
   roles:
+    - common
+    - ovpn
     - bird
