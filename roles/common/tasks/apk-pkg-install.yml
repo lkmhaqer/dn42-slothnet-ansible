@@ -1,0 +1,5 @@
+# file: roles/common/tasks/apk-pkg-install.yml
+- name: Installing apk base packages
+  apk:
+    name: htop
+    state: present

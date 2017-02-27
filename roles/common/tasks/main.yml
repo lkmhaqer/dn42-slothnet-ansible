@@ -7,10 +7,20 @@
 
 - include: apt-cache-update.yml
   when: ansible_distribution == "Ubuntu"
-  tags: update
+  tags:
+    - update
+    - base
 
 - include: apk-upgrade.yml
   when: ansible_distribution == "Alpine"
-  tags: update
+  tags:
+    - update
+    - base
 
-- include: base-pkg-install.yml
+- include: apt-pkg-install.yml
+  when: ansible_distribution == "Ubuntu"
+  tags: base
+
+- include: apk-pkg-install.yml
+  when: ansible_distribution == "Alpine"
+  tags: base
