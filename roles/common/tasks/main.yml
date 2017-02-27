@@ -9,4 +9,8 @@
   when: ansible_distribution == "Ubuntu"
   tags: update
 
+- include: apk-upgrade.yml
+  when: ansible_distribution == "Alpine"
+  tags: update
+
 - include: base-pkg-install.yml

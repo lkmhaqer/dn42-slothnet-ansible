@@ -1,0 +1,8 @@
+# file: roles/common/tasks/apk-upgrade.yml
+- name: Update apk cache
+  apk:
+    update_cache: yes
+
+- name: Upgrade all apk packages
+  apk:
+    upgrade: yes
