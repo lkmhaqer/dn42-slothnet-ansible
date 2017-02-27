@@ -1,5 +1,5 @@
 host:
-  loopback: 172.27.255.29
+  loopback: 172.22.150.126
   ovpn_addr: 172.22.150.127
   tunnel_interfaces:
     tun-node30-aus:
@@ -13,3 +13,40 @@ host:
       port: 11143
       ip: 172.22.150.80
       complzo: True
+  bgp_peers:
+    tombii-atl:
+      peer_ip: 172.23.102.241
+      peer_as: 4242420321
+      peer_group: dnpeers
+    epoch-dfw:
+      peer_ip: 172.23.11.2
+      peer_as: 64526
+      peer_group: dnpeers
+    wolke7-atl:
+      peer_ip: 172.23.41.17
+      peer_as: 4242420300
+      peer_group: dnpeers
+    toBee-nyc:
+      peer_ip: 172.23.67.8
+      peer_as: 4242420022
+      peer_group: dnpeers
+    node96-sea:
+      peer_ip: 172.22.150.124
+    node64-hnd:
+      peer_ip: 172.22.150.122
+    node69-rtm:
+      peer_ip: 172.22.150.120
+    node28-lon:
+      peer_ip: 172.22.150.112
+    node43-dal:
+      peer_ip: 172.22.150.114
+    node29-pmacct:
+      peer_ip: 172.22.150.119
+    vsrx-01:
+      peer_ip: 172.23.158.81
+      source_address: 172.23.158.82
+      route_reflector: True
+    vsrx-00:
+      peer_ip: 172.23.158.83
+      source_address: 172.23.158.82
+      route_reflector: True

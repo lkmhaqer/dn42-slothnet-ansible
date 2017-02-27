@@ -1,0 +1,11 @@
+protocol bgp {{ item.key }} from {{ item.value.peer_group|default("ibgp") }} {
+
+  neighbor {{ item.value.peer_ip }} as {{ item.value.peer_as|default("4242420031") }};
+  {% if item.value.source_address is defined %}
+  source address {{ item.value.source_address }};
+  {% endif %}
+  {% if item.value.route_reflector is defined %}
+  rr client;
+  {% endif %}
+
+};

@@ -9,14 +9,14 @@ router id {{ host.loopback }};
 
 protocol device {
   scan time 10; # recheck every 10 seconds
-}
+};
 
 protocol direct {
   interface "lo*";
   {% for interface in host.tunnel_interfaces %}
   interface "{{ interface }}";
   {% endfor %}
-}
+};
 
 protocol static {
   route 172.22.150.64/26 reject;
