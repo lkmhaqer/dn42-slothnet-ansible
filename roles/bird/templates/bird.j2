@@ -13,9 +13,9 @@ protocol device {
 
 protocol direct {
   interface "lo*";
-  {% for interface in host.tunnel_interfaces %}
+{% for interface in host.tunnel_interfaces %}
   interface "{{ interface }}";
-  {% endfor %}
+{% endfor %}
 };
 
 protocol static {
@@ -43,14 +43,13 @@ protocol ospf SlothNet {
       172.23.158.64/26;
     };
     stub no;
-    {% for interface in host.tunnel_interfaces %}
-    {% if interface.ospf_cost is defined %}
+{% for interface in host.tunnel_interfaces %}
+{% if interface.ospf_cost is defined %}
     interface "{{ interface }}" {
       cost {{ interface.ospf_cost }};
     };
-    {% endif %}
-    {% endfor %}
-
+{% endif %}
+{% endfor %}
   };
 };
 
