@@ -1,4 +1,10 @@
 ---
 # file: roles/bird/tasks/main.yml
 
+- include: apt-install-bird.yml
+  when: ansible_distribution == "Ubuntu"
+
+- include: apk-install-bird.yml
+  when: ansible_distribution == "Ubuntu"
+
 - include: setup-bird.yml

@@ -1,6 +1,3 @@
-- name: Checking bird package
-  apt: name=bird update_cache=yes cache_valid_time=3600 state=present
-
 - name: Checking bird config directorys
   file: path={{ bird_dir }}peers4/ state=directory
 

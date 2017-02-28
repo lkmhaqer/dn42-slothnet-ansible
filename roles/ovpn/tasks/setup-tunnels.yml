@@ -1,6 +1,3 @@
-- name: Checking openvpn package
-  apt: name=openvpn update_cache=yes cache_valid_time=3600 state=present
-
 - name: Checking OVPN Config Directory
   file: path={{ openvpn_dir }} state=directory
 

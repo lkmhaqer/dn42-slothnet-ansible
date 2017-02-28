@@ -1,0 +1,4 @@
+- name: Install bird in apk
+  apk:
+    name: bird@testing
+    state: present

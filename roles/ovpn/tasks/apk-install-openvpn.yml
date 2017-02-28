@@ -1,0 +1,4 @@
+- name: Install openvpn in apk
+  apk:
+    name: openvpn
+    state: present

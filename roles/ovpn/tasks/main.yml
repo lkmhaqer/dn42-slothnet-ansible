@@ -1,6 +1,14 @@
 ---
 # file: roles/ovpn/tasks/main.yml
+
+- include: apt-install-openvpn.yml
+  when: ansible_distribution == "Ubuntu"
+
+- include: apk-install-openvpn.yml
+  when: ansible_distribution == "Alpine"
+
 - include: setup-tunnels.yml
+
 - include: ubuntu-systemd.yml
   when: ansible_distribution_major_version == "16"
 
