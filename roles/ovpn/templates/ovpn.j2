@@ -42,7 +42,7 @@ ifconfig {{ host.ovpn_addr }} {{ item.value.ip }}
 
 # Pre-shared Key
 {% if item.value.secret is defined %}
-secret {{ item.value.secret }}.key
+secret {{ item.value.secret }}
 {% else %}
 secret {{ item.key }}.key
 {% endif %}
