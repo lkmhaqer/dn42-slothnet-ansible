@@ -13,6 +13,7 @@ node96.slothlogistics.net	ansible_ssh_host=172.27.255.96
 node29.slothlogistics.net       ansible_ssh_host=172.27.255.29
 node30.slothlogistics.net	ansible_ssh_host=192.168.137.96
 node31.slothlogistics.net	ansible_ssh_host=192.168.137.97
+node33.slothlogistics.net	ansible_ssh_host=192.168.137.92
 
 [us:children]
 us-bird

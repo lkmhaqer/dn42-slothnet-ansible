@@ -13,6 +13,12 @@ host:
       port: 11143
       ip: 172.22.150.80
       complzo: True
+    tun-node33-aus:
+      remote: 192.168.137.92
+      port: 11192
+      ip: 172.22.150.79
+      complzo: True
+      secret: node29-node33.key
   bgp_peers:
     tombii-atl:
       peer_ip: 172.23.102.241
@@ -42,6 +48,8 @@ host:
       peer_ip: 172.22.150.114
     node29-pmacct:
       peer_ip: 172.22.150.119
+    node33-aus:
+      peer_ip: 172.22.150.78
     vsrx-01:
       peer_ip: 172.23.158.81
       source_address: 172.23.158.82

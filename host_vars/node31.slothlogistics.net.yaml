@@ -9,6 +9,15 @@ host:
       complzo: True
       secret: node30-node31.key
       ospf_cost: 10
+    tun-node33-aus:
+      remote: 192.168.137.92
+      port: 11144
+      ip: 172.22.150.79
+      complzo: True
+      secret: node31-node33.key
+      ospf_cost: 10
   bgp_peers:
     node30-aus:
       peer_ip: 172.22.150.74
+    node33-aus:
+      peer_ip: 172.22.150.78

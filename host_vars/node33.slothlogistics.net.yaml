@@ -1,0 +1,23 @@
+host:
+  loopback: 172.22.150.78
+  ovpn_addr: 172.22.150.79
+  tunnel_interfaces:
+    tun-node29-aus:
+      remote: 192.168.137.75
+      port: 11192
+      ip: 172.22.150.127
+      complzo: True
+      secret: node29-node33.key
+      ospf_cost: 10
+    tun-node31-aus:
+      remote: 192.168.137.96
+      port: 11144
+      ip: 172.22.150.77
+      complzo: True
+      secret: node30-node33.key
+      ospf_cost: 10
+  bgp_peers:
+    node29-aus:
+      peer_ip: 172.22.150.126
+    node31-aus:
+      peer_ip: 172.22.150.76
