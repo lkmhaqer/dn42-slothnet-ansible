@@ -1,3 +1,4 @@
 sna/
+production.hosts
 *.retry
 roles/ovpn/files/*
