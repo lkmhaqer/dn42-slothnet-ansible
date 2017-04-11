@@ -2,6 +2,9 @@
 # file: roles/common/tasks/main.yml
 - include: hostname.yml
 
+- include: motd.yml
+  when: ansible_distribution == "Ubuntu"
+
 - include: ubuntu16-apt-fix.yml
   when: ansible_distribution_major_version == "16"
 
